@@ -1,0 +1,49 @@
+{
+    "source": {
+        "file": {
+            "path": "/home/shbhat/Documents/origTrans.csv"
+        }
+    }, 
+    "loader": {
+        "orientdb": {
+            "dbType": "graph", 
+            "classes": [
+                {
+                    "extends": "V", 
+                    "name": "orig"
+                }, 
+                {
+                    "extends": "E", 
+                    "name": "Trans_True"
+                }
+            ], 
+            "dbURL": "plocal:../databases/transactions", 
+            "indexes": [
+                {
+                    "fields": [
+                        "serial:integer"
+                    ], 
+                    "type": "UNIQUE", 
+                    "class": "orig"
+                }
+            ]
+        }
+    }, 
+    "transformers": [
+        {
+            "vertex": {
+                "class": "orig"
+            }
+        }, 
+        {
+            "edge": {
+                "joinFieldName": "nameDest", 
+                "lookup": "Dest.nameDest", 
+                "class": "Trans_True"
+            }
+        }
+    ], 
+    "extractor": {
+        "csv": {}
+    }
+}

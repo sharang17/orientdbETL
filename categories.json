@@ -1,0 +1,1 @@
+{"source": {"file": {"path": "./openbeerdb_csv/categories.csv"}}, "transformers": [{"vertex": {"class": "Category"}}], "extractor": {"csv": {}}, "loader": {"orientdb": {"dbType": "graph", "classes": [{"extends": "V", "name": "Category"}], "dbURL": "plocal:../databases/openbeerdb", "indexes": [{"fields": ["id:integer"], "type": "UNIQUE", "class": "Category"}]}}}

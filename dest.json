@@ -1,0 +1,38 @@
+{
+    "source": {
+        "file": {
+            "path": "/home/shbhat/Documents/destTrans.csv"
+        }
+    }, 
+    "loader": {
+        "orientdb": {
+            "dbType": "graph", 
+            "classes": [
+                {
+                    "extends": "V", 
+                    "name": "Dest"
+                }
+            ], 
+            "dbURL": "plocal:../databases/transactions", 
+            "indexes": [
+                {
+                    "fields": [
+                        "serial:integer"
+                    ], 
+                    "type": "UNIQUE", 
+                    "class": "Dest"
+                }
+            ]
+        }
+    }, 
+    "transformers": [
+        {
+            "vertex": {
+                "class": "Dest"
+            }
+        }
+    ], 
+    "extractor": {
+        "csv": {}
+    }
+}
